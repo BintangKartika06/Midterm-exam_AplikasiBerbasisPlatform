@@ -105,7 +105,7 @@ const HomeScreen = () => {
           <View style={styles.ctaContainer}>
             <Pressable
               style={styles.ctaPrimary}
-              onPress={() => router.push("/tabs/locations")}
+              onPress={() => router.push("/locations")}
             >
               <Lucide name="calendar" size={18} color="#292524" />
               <Text style={styles.ctaPrimaryText}>BOOK A TABLE</Text>
@@ -113,7 +113,7 @@ const HomeScreen = () => {
 
             <Pressable
               style={styles.ctaSecondary}
-              onPress={() => router.push("/tabs/menu")}
+              onPress={() => router.push("/menu")}
             >
               <Lucide name="shopping-bag" size={18} color="#292524" />
               <Text style={styles.ctaSecondaryText}>ORDER AHEAD</Text>
@@ -129,7 +129,7 @@ const HomeScreen = () => {
           </View>
           <Pressable
             style={styles.fullMenuLink}
-            onPress={() => router.push("/tabs/menu")}
+            onPress={() => router.push("/menu")}
           >
             <Text style={styles.fullMenuText}>Full Menu</Text>
             <Lucide name="chevron-right" size={14} color="#8C5E13" />
@@ -209,7 +209,7 @@ const HomeScreen = () => {
             </Text>
             <Pressable
               style={styles.promoLink}
-              onPress={() => router.push("/tabs/whatson")}
+              onPress={() => router.push("/whatson")}
             >
               <Text style={styles.promoLinkText}>Explore Vibes</Text>
               <Lucide name="arrow-right" size={14} color="#8C5E13" />
@@ -228,7 +228,7 @@ const HomeScreen = () => {
             </Text>
             <Pressable
               style={styles.promoLink}
-              onPress={() => router.push("/tabs/whatson")}
+              onPress={() => router.push("/whatson")}
             >
               <Text style={styles.promoLinkText}>Book Party</Text>
               <Lucide name="arrow-right" size={14} color="#8C5E13" />

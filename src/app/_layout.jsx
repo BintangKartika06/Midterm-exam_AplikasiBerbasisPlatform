@@ -15,11 +15,8 @@ const RootLayout = () => {
         headerTitleAlign: "center",
       }}
     >
-      {/* index redirect ke tabs */}
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-
       {/* tab bar utama */}
-      <Stack.Screen name="tabs" options={{ headerShown: false }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 
       {/* halaman Stack Detail */}
       <Stack.Screen
