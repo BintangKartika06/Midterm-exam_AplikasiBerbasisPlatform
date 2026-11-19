@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Image,
-  ImageBackground,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -25,7 +24,7 @@ const HomeScreen = () => {
       description:
         "Stacked fluffy hotcakes, fresh honeycomb butter, wild forest berries, organic maple syrup, and whipped ricotta cheese.",
       image:
-        "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&auto=format&fit=crop&q=80",
+        "https://placehold.co/600x400/png",
       tag: "Vegetarian",
       rating: "4.9 (420+)",
     },
@@ -37,7 +36,7 @@ const HomeScreen = () => {
       description:
         "Creamy Bali avocado, pasture-raised poached eggs, feta crumbs, dukkah spice, and micro herbs on toasted sourdough.",
       image:
-        "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&auto=format&fit=crop&q=80",
+        "https://placehold.co/600x400/png",
       tag: "House Bread",
       rating: "4.8 (310+)",
     },
@@ -62,7 +61,7 @@ const HomeScreen = () => {
             </Pressable>
             <Image
               source={{
-                uri: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
+                uri: "https://placehold.co/600x400/png",
               }}
               style={styles.avatar}
             />
@@ -79,13 +78,14 @@ const HomeScreen = () => {
 
         {/* 3. Hero Card */}
         <View style={styles.heroCard}>
-          <ImageBackground
-            source={{
-              uri: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80",
-            }}
-            style={styles.heroImage}
-            imageStyle={{ borderRadius: 24 }}
-          >
+          <View style={styles.heroImage}>
+            <Image
+              source={{
+                uri: "https://placehold.co/600x400/png",
+              }}
+              style={[StyleSheet.absoluteFillObject, { borderRadius: 24 }]}
+              resizeMode="cover"
+            />
             {/* Tombol Favorit */}
             <Pressable style={styles.favoriteButton}>
               <Lucide name="heart" size={18} color="#292524" />
@@ -99,7 +99,7 @@ const HomeScreen = () => {
                 Where strangers become regulars since 2014
               </Text>
             </View>
-          </ImageBackground>
+          </View>
 
           {/* CTA Buttons di bawah Hero */}
           <View style={styles.ctaContainer}>
@@ -287,5 +287,403 @@ const HomeScreen = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#FCFBF8",
+  },
+  scrollContent: {
+    paddingHorizontal: 18,
+    paddingTop: 10,
+    paddingBottom: 24,
+    gap: 18,
+  },
+
+  // 1. Header
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  brandSubtitle: {
+    fontSize: 11,
+    fontWeight: "700",
+    letterSpacing: 0.8,
+    color: "#8C5E13",
+    textTransform: "uppercase",
+  },
+  headerTitle: {
+    fontSize: 22,
+    fontWeight: "800",
+    color: "#292524",
+    marginTop: -2,
+  },
+  headerActions: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  iconButton: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: "#F4F0E8",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  avatar: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: "#E7E5E4",
+  },
+
+  // 2. Greeting
+  greetingSection: {
+    gap: 2,
+  },
+  greetingTitle: {
+    fontSize: 18,
+    fontWeight: "700",
+    color: "#292524",
+  },
+  greetingSubtitle: {
+    fontSize: 13,
+    color: "#78716C",
+  },
+
+  // 3. Hero Card
+  heroCard: {
+    borderRadius: 24,
+    backgroundColor: "#FFFFFF",
+    overflow: "hidden",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.06,
+    shadowRadius: 10,
+    elevation: 3,
+  },
+  heroImage: {
+    height: 250,
+    justifyContent: "space-between",
+    padding: 16,
+  },
+  favoriteButton: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    alignSelf: "flex-end",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  heroOverlay: {
+    backgroundColor: "rgba(24, 21, 18, 0.65)",
+    padding: 14,
+    borderRadius: 16,
+    gap: 2,
+  },
+  heroBadge: {
+    fontSize: 10,
+    fontWeight: "800",
+    letterSpacing: 0.6,
+    color: "#F6C15B",
+  },
+  heroTitle: {
+    fontSize: 18,
+    fontWeight: "800",
+    color: "#FFFFFF",
+  },
+  heroSubtitle: {
+    fontSize: 11,
+    color: "#E7E5E4",
+  },
+  ctaContainer: {
+    flexDirection: "row",
+    padding: 14,
+    gap: 12,
+    backgroundColor: "#FFFFFF",
+  },
+  ctaPrimary: {
+    flex: 1,
+    flexDirection: "row",
+    backgroundColor: "#E8A229",
+    borderRadius: 25,
+    paddingVertical: 12,
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 8,
+  },
+  ctaPrimaryText: {
+    fontSize: 12,
+    fontWeight: "800",
+    color: "#292524",
+    letterSpacing: 0.5,
+  },
+  ctaSecondary: {
+    flex: 1,
+    flexDirection: "row",
+    backgroundColor: "#F9F6F0",
+    borderRadius: 25,
+    paddingVertical: 12,
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 8,
+    borderWidth: 1,
+    borderColor: "#EAE5DC",
+  },
+  ctaSecondaryText: {
+    fontSize: 12,
+    fontWeight: "800",
+    color: "#292524",
+    letterSpacing: 0.5,
+  },
+
+  // 4. Chef's Selection
+  sectionHeaderRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
+    marginTop: 4,
+  },
+  sectionBadge: {
+    fontSize: 11,
+    fontWeight: "800",
+    color: "#8C5E13",
+    letterSpacing: 0.6,
+  },
+  sectionHeading: {
+    fontSize: 17,
+    fontWeight: "800",
+    color: "#292524",
+  },
+  fullMenuLink: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 2,
+    paddingBottom: 2,
+  },
+  fullMenuText: {
+    fontSize: 12,
+    fontWeight: "700",
+    color: "#8C5E13",
+  },
+  horizontalList: {
+    gap: 14,
+    paddingRight: 8,
+  },
+  foodCard: {
+    width: 230,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 18,
+    overflow: "hidden",
+    borderWidth: 1,
+    borderColor: "#EAE5DC",
+  },
+  foodImageWrapper: {
+    height: 140,
+    position: "relative",
+  },
+  foodImage: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#E7E5E4",
+  },
+  priceBadge: {
+    position: "absolute",
+    bottom: 10,
+    left: 10,
+    backgroundColor: "rgba(255, 255, 255, 0.92)",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+  },
+  priceBadgeText: {
+    fontSize: 11,
+    fontWeight: "800",
+    color: "#292524",
+  },
+  plusButton: {
+    position: "absolute",
+    bottom: 10,
+    right: 10,
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: "#E8A229",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  foodInfo: {
+    padding: 12,
+    gap: 6,
+  },
+  foodTitle: {
+    fontSize: 15,
+    fontWeight: "700",
+    color: "#292524",
+  },
+  foodDesc: {
+    fontSize: 11,
+    lineHeight: 16,
+    color: "#78716C",
+  },
+  foodMetaRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 4,
+  },
+  tagBadge: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+  },
+  tagText: {
+    fontSize: 11,
+    color: "#57534E",
+    fontWeight: "500",
+  },
+  ratingBadge: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+  },
+  ratingText: {
+    fontSize: 11,
+    color: "#78716C",
+    fontWeight: "600",
+  },
+
+  // 5. Promo Grid
+  promoGrid: {
+    flexDirection: "row",
+    gap: 12,
+  },
+  promoCard: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 18,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: "#EAE5DC",
+    gap: 6,
+  },
+  promoIconBox: {
+    width: 36,
+    height: 36,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 4,
+  },
+  promoBadge: {
+    fontSize: 10,
+    fontWeight: "800",
+    color: "#8C5E13",
+    letterSpacing: 0.5,
+  },
+  promoTitle: {
+    fontSize: 14,
+    fontWeight: "800",
+    color: "#292524",
+  },
+  promoText: {
+    fontSize: 11,
+    lineHeight: 16,
+    color: "#78716C",
+  },
+  promoLink: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+    marginTop: 6,
+  },
+  promoLinkText: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: "#8C5E13",
+  },
+
+  // 6. Live Music
+  musicCard: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 20,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: "#EAE5DC",
+    gap: 14,
+  },
+  musicHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  musicTitleRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  musicIconCircle: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: "#FDF1DC",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  musicTitle: {
+    fontSize: 15,
+    fontWeight: "800",
+    color: "#292524",
+  },
+  musicSubtitle: {
+    fontSize: 11,
+    color: "#78716C",
+  },
+  freeBadge: {
+    backgroundColor: "#F4EFE6",
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  freeBadgeText: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: "#57534E",
+  },
+  scheduleList: {
+    gap: 8,
+  },
+  scheduleRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#FAF6EF",
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 10,
+  },
+  scheduleLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+  dot: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+  },
+  scheduleName: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#292524",
+  },
+  scheduleTime: {
+    fontSize: 11,
+    fontWeight: "600",
+    color: "#78716C",
+  },
+});
 
 export default HomeScreen;
