@@ -23,8 +23,7 @@ const HomeScreen = () => {
       category: "Chef's Selection",
       description:
         "Stacked fluffy hotcakes, fresh honeycomb butter, wild forest berries, organic maple syrup, and whipped ricotta cheese.",
-      image:
-        "https://placehold.co/600x400/png",
+      image: "https://placehold.co/600x400/png",
       tag: "Vegetarian",
       rating: "4.9 (420+)",
     },
@@ -35,8 +34,7 @@ const HomeScreen = () => {
       category: "Chef's Selection",
       description:
         "Creamy Bali avocado, pasture-raised poached eggs, feta crumbs, dukkah spice, and micro herbs on toasted sourdough.",
-      image:
-        "https://placehold.co/600x400/png",
+      image: "https://placehold.co/600x400/png",
       tag: "House Bread",
       rating: "4.8 (310+)",
     },
@@ -101,7 +99,7 @@ const HomeScreen = () => {
             </View>
           </View>
 
-          {/* CTA Buttons di bawah Hero */}
+          {/* Call to Actions Buttons di bawah Hero */}
           <View style={styles.ctaContainer}>
             <Pressable
               style={styles.ctaPrimary}

@@ -15,6 +15,10 @@ const MenuScreen = () => {
           Halaman Menu sedang disiapkan untuk task berikutnya.
         </Text>
       </View>
+
+      <View>
+        
+      </View>
     </SafeAreaView>
   );
 };

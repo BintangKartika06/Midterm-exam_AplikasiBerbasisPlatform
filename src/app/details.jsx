@@ -15,7 +15,7 @@ const DetailsScreen = () => {
   const description = params.description;
   const imageUri =
     params.imageUri ||
-    "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&auto=format&fit=crop&q=80";
+    "https://placehold.co/600x400/png";
 
   return (
     <SafeAreaView style={styles.safeArea} edges={["bottom"]}>
