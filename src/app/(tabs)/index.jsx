@@ -44,10 +44,6 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}
-      >
         {/* 1. Header Bar */}
         <View style={styles.header}>
           <View>
@@ -67,6 +63,10 @@ const HomeScreen = () => {
             />
           </View>
         </View>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
 
         {/* 2. Greeting Section */}
         <View style={styles.greetingSection}>
@@ -88,7 +88,7 @@ const HomeScreen = () => {
             />
             {/* Tombol Favorit */}
             <Pressable style={styles.favoriteButton}>
-              <Lucide name="heart" size={18} color="#292524" />
+              <Lucide name="heart" size={18} color="#0f0f0f" />
             </Pressable>
 
             {/* Overlay Konten Hero */}
@@ -304,6 +304,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    backgroundColor: "#FCFBF8",
+    zIndex: 10,
   },
   brandSubtitle: {
     fontSize: 11,
@@ -355,7 +359,7 @@ const styles = StyleSheet.create({
   // 3. Hero Card
   heroCard: {
     borderRadius: 24,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#bd8f10",
     overflow: "hidden",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
@@ -370,6 +374,7 @@ const styles = StyleSheet.create({
   },
   favoriteButton: {
     width: 36,
+    marginBottom: 95,
     height: 36,
     borderRadius: 18,
     backgroundColor: "rgba(255, 255, 255, 0.9)",

@@ -9,12 +9,10 @@ const DetailsScreen = () => {
   const params = useLocalSearchParams();
 
   // Data default jika dibuka tanpa parameter khusus
-  const title = params.title || "Madu Ricotta Hotcakes";
-  const price = params.price || "95K IDR";
-  const category = params.category || "Chef's Selection";
-  const description =
-    params.description ||
-    "Stacked fluffy hotcakes, fresh honeycomb butter, wild forest berries, organic maple syrup, and whipped ricotta cheese.";
+  const title = params.title;
+  const price = params.price;
+  const category = params.category;
+  const description = params.description;
   const imageUri =
     params.imageUri ||
     "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&auto=format&fit=crop&q=80";
