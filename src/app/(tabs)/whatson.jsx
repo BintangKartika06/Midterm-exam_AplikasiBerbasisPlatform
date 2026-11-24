@@ -42,7 +42,9 @@ const WhatsOnScreen = () => {
             <Lucide name="bell" size={20} color="#292524" />
           </Pressable>
           <Image
-            source={{ uri: "https://placehold.co/600x400/png" }}
+            source={{
+              uri: "https://placehold.co/600x400/png",
+            }}
             style={styles.avatar}
           />
         </View>
@@ -71,13 +73,16 @@ const WhatsOnScreen = () => {
               category: "Island Famous Deal",
               description:
                 "Double the pizza, same price! Hand-stretched artisan sourdough pizza straight from the wood-fired stone oven. Available across all 5 venues every Tuesday and Sunday from 4:00 PM.",
-              image: "https://placehold.co/600x400/png",
+              image:
+                "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=80",
             })
           }
         >
           <View style={styles.imageContainer}>
             <Image
-              source={{ uri: "https://placehold.co/600x400/png" }}
+              source={{
+                uri: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=80",
+              }}
               style={styles.eventImage}
               resizeMode="cover"
             />
@@ -143,13 +148,16 @@ const WhatsOnScreen = () => {
               category: "Surf Club Vibe",
               description:
                 "Your tropical surf club in Bali. Sip on 2-for-1 signature cocktails, island spritzes, and ice-cold beers while the sun dips low and live sunset DJ sets fill the air.",
-              image: "https://placehold.co/600x400/png",
+              image:
+                "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&auto=format&fit=crop&q=80",
             })
           }
         >
           <View style={styles.imageContainer}>
             <Image
-              source={{ uri: "https://placehold.co/600x400/png" }}
+              source={{
+                uri: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&auto=format&fit=crop&q=80",
+              }}
               style={styles.eventImage}
               resizeMode="cover"
             />
@@ -263,7 +271,8 @@ const WhatsOnScreen = () => {
                   category: "Acoustic & Soul",
                   description:
                     "Jadwal lengkap musisi lokal Bali minggu ini di seluruh cabang Milk & Madu. Nikmati alunan akustik syahdu dan sunset dinner setiap hari Selasa, Jumat, dan akhir pekan.",
-                  image: "https://placehold.co/600x400/png",
+                  image:
+                    "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&auto=format&fit=crop&q=80",
                 })
               }
             >
@@ -282,13 +291,16 @@ const WhatsOnScreen = () => {
               category: "Family & Kids Club",
               description:
                 "Swap cocktails for mocktails! Book your next kids birthday party with pizza-making workshops, face painting, dedicated open playgrounds, and artisan cakes.",
-              image: "https://placehold.co/600x400/png",
+              image:
+                "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&auto=format&fit=crop&q=80",
             })
           }
         >
           <View style={styles.imageContainer}>
             <Image
-              source={{ uri: "https://placehold.co/600x400/png" }}
+              source={{
+                uri: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&auto=format&fit=crop&q=80",
+              }}
               style={styles.eventImage}
               resizeMode="cover"
             />
