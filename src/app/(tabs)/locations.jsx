@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Image,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import Lucide from "@react-native-vector-icons/lucide";
@@ -73,7 +66,7 @@ const LocationsScreen = () => {
           </Pressable>
           <Image
             source={{
-              uri: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
+              uri: "https://placehold.co/600x400/png",
             }}
             style={styles.avatar}
           />
