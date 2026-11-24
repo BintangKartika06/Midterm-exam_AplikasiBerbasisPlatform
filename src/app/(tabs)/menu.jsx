@@ -14,16 +14,7 @@ import Lucide from "@react-native-vector-icons/lucide";
 
 const MenuScreen = () => {
   const router = useRouter();
-  const [selectedCategory, setSelectedCategory] = useState("All Dishes");
   const [searchQuery, setSearchQuery] = useState("");
-
-  const categories = [
-    "All Dishes",
-    "Brekky Sets",
-    "Artisan Pizza",
-    "Bowls & Salads",
-    "Coffee & Drinks",
-  ];
 
   const menuItems = [
     {
@@ -35,7 +26,6 @@ const MenuScreen = () => {
         "Fluffy whipped ricotta pancakes topped with artisanal honeycomb butter, seasonal hand-picked berries, wild Bali bee pollen & pure Canadian maple syrup.",
       image: "https://placehold.co/600x400/png",
       tags: ["Veg", "Iconic"],
-      initialQuantity: 1,
     },
     {
       id: "2",
@@ -46,7 +36,6 @@ const MenuScreen = () => {
         "Hand-stretched fermented sourdough base, Italian San Marzano sauce, fresh torn burrata, 18-month aged prosciutto, wild rocket & cold-pressed EVOO.",
       image: "https://placehold.co/600x400/png",
       tags: ["Neapolitan", "Dinner & Lunch"],
-      initialQuantity: 0,
     },
     {
       id: "3",
@@ -57,7 +46,6 @@ const MenuScreen = () => {
         "Lush Bedugul highland avocado on artisan sourdough toast, two soft poached pasture eggs, crumbled Greek feta, dukkah spice & lemon wedge.",
       image: "https://placehold.co/600x400/png",
       tags: ["Organic Eggs", "All Day"],
-      initialQuantity: 1,
     },
     {
       id: "4",
@@ -68,7 +56,6 @@ const MenuScreen = () => {
         "Organic Amazon acai blended with Bali red dragonfruit, house baked coconut granola, chia seeds, shaved coconut & fragrant tropical berries.",
       image: "https://placehold.co/600x400/png",
       tags: ["Raw & Fresh", "Superfood"],
-      initialQuantity: 0,
     },
     {
       id: "5",
@@ -79,11 +66,10 @@ const MenuScreen = () => {
         "Slow-steeped Kintamani single-origin cold brew poured over chilled fresh coconut milk and infused with organic Madu blossom nectar.",
       image: "https://placehold.co/600x400/png",
       tags: ["Kintamani Origin", "Dairy Free"],
-      initialQuantity: 0,
     },
   ];
 
-  // Helper untuk membuka halaman Detail
+  // Helper navigasi ke halaman Detail
   const openDetails = (item) => {
     router.push({
       pathname: "/details",
@@ -133,35 +119,12 @@ const MenuScreen = () => {
           />
         </View>
 
-        {/* 3. Filter Kategori Chips */}
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.categoriesList}
-        >
-          {categories.map((cat) => {
-            const isActive = selectedCategory === cat;
-            return (
-              <Pressable
-                key={cat}
-                style={[
-                  styles.categoryChip,
-                  isActive && styles.categoryChipActive,
-                ]}
-                onPress={() => setSelectedCategory(cat)}
-              >
-                <Text
-                  style={[
-                    styles.categoryText,
-                    isActive && styles.categoryTextActive,
-                  ]}
-                >
-                  {cat}
-                </Text>
-              </Pressable>
-            );
-          })}
-        </ScrollView>
+        {/* 3. Kategori All Dishes Saja */}
+        <View style={styles.categoryContainer}>
+          <View style={styles.categoryChipActive}>
+            <Text style={styles.categoryTextActive}>All Dishes</Text>
+          </View>
+        </View>
 
         {/* 4. Brekky Set Highlight Card */}
         <View style={styles.brekkyCard}>
@@ -264,7 +227,7 @@ const MenuScreen = () => {
                   {item.description}
                 </Text>
 
-                {/* Footer Baris Tag & Action Button */}
+                {/* Footer Baris Tag & Tombol ADD */}
                 <View style={styles.dishActionRow}>
                   <View style={styles.tagsContainer}>
                     {item.tags.map((tag, idx) => (
@@ -274,66 +237,20 @@ const MenuScreen = () => {
                     ))}
                   </View>
 
-                  {/* Quantity Stepper atau Add Button */}
-                  {item.initialQuantity > 0 ? (
-                    <View style={styles.stepperContainer}>
-                      <Pressable style={styles.stepBtn}>
-                        <Lucide name="minus" size={14} color="#292524" />
-                      </Pressable>
-                      <Text style={styles.stepNumber}>
-                        {item.initialQuantity}
-                      </Text>
-                      <Pressable style={styles.stepBtnPrimary}>
-                        <Lucide name="plus" size={14} color="#292524" />
-                      </Pressable>
-                    </View>
-                  ) : (
-                    <Pressable
-                      style={styles.addDishButton}
-                      onPress={() => openDetails(item)}
-                    >
-                      <Lucide name="plus" size={14} color="#292524" />
-                      <Text style={styles.addDishButtonText}>ADD</Text>
-                    </Pressable>
-                  )}
+                  {/* Tombol ADD Sederhana */}
+                  <Pressable
+                    style={styles.addDishButton}
+                    onPress={() => openDetails(item)}
+                  >
+                    <Lucide name="plus" size={14} color="#292524" />
+                    <Text style={styles.addDishButtonText}>ADD</Text>
+                  </Pressable>
                 </View>
               </View>
             </Pressable>
           ))}
         </View>
       </ScrollView>
-
-      {/* 7. Floating Order Cart Bar */}
-      <View style={styles.cartFloatContainer}>
-        <View style={styles.cartContent}>
-          <View style={styles.cartLeft}>
-            <View style={styles.cartCountBadge}>
-              <Text style={styles.cartCountText}>2</Text>
-            </View>
-            <View>
-              <Text style={styles.cartLabel}>YOUR ORDER</Text>
-              <Text style={styles.cartTotal}>210,000 IDR</Text>
-            </View>
-          </View>
-
-          <Pressable
-            style={styles.cartButton}
-            onPress={() =>
-              openDetails({
-                title: "Your Order Summary",
-                price: "210,000 IDR",
-                category: "Active Cart",
-                description:
-                  "1x Ricotta Hotcakes (115K) + 1x The Smashed Avo (95K). Total pesanan Anda siap untuk diproses di outlet Milk & Madu pilihan.",
-                image: "https://placehold.co/600x400/png",
-              })
-            }
-          >
-            <Text style={styles.cartButtonText}>VIEW CART</Text>
-            <Lucide name="arrow-right" size={16} color="#292524" />
-          </Pressable>
-        </View>
-      </View>
     </SafeAreaView>
   );
 };
@@ -346,7 +263,7 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: 18,
     paddingTop: 10,
-    paddingBottom: 90, // ruang untuk floating cart bar
+    paddingBottom: 24,
     gap: 16,
   },
 
@@ -411,29 +328,21 @@ const styles = StyleSheet.create({
     padding: 0,
   },
 
-  // 3. Category Chips
-  categoriesList: {
-    gap: 8,
+  // 3. Kategori All Dishes
+  categoryContainer: {
+    flexDirection: "row",
   },
-  categoryChip: {
+  categoryChipActive: {
     backgroundColor: "#FFFFFF",
-    paddingHorizontal: 14,
+    paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
     borderWidth: 1,
     borderColor: "#EAE5DC",
   },
-  categoryChipActive: {
-    backgroundColor: "#FAF1DF",
-    borderColor: "#C98616",
-  },
-  categoryText: {
-    fontSize: 12,
-    fontWeight: "600",
-    color: "#78716C",
-  },
   categoryTextActive: {
-    color: "#8C5E13",
+    fontSize: 12,
+    color: "#292524",
     fontWeight: "700",
   },
 
@@ -633,114 +542,16 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#78716C",
   },
-  stepperContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#FAF7F2",
-    borderRadius: 16,
-    padding: 3,
-    borderWidth: 1,
-    borderColor: "#EAE5DC",
-    gap: 8,
-  },
-  stepBtn: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
-    backgroundColor: "#FFFFFF",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  stepBtnPrimary: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
-    backgroundColor: "#E8A229",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  stepNumber: {
-    fontSize: 12,
-    fontWeight: "700",
-    color: "#292524",
-    minWidth: 14,
-    textAlign: "center",
-  },
   addDishButton: {
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#E8A229",
-    paddingHorizontal: 12,
+    paddingHorizontal: 14,
     paddingVertical: 6,
     borderRadius: 16,
     gap: 4,
   },
   addDishButtonText: {
-    fontSize: 11,
-    fontWeight: "800",
-    color: "#292524",
-  },
-
-  // 7. Floating Order Cart
-  cartFloatContainer: {
-    position: "absolute",
-    bottom: 12,
-    left: 18,
-    right: 18,
-  },
-  cartContent: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: "#1C1917",
-    paddingVertical: 10,
-    paddingHorizontal: 14,
-    borderRadius: 30,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 10,
-    elevation: 6,
-  },
-  cartLeft: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 10,
-  },
-  cartCountBadge: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: "#E8A229",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  cartCountText: {
-    fontSize: 12,
-    fontWeight: "800",
-    color: "#292524",
-  },
-  cartLabel: {
-    fontSize: 9,
-    fontWeight: "700",
-    color: "#A8A29E",
-    letterSpacing: 0.5,
-  },
-  cartTotal: {
-    fontSize: 13,
-    fontWeight: "800",
-    color: "#FFFFFF",
-  },
-  cartButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#E8A229",
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    borderRadius: 20,
-    gap: 6,
-  },
-  cartButtonText: {
     fontSize: 11,
     fontWeight: "800",
     color: "#292524",
