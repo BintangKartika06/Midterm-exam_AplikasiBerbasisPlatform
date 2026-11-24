@@ -16,7 +16,8 @@ const HomeScreen = () => {
       category: "Chef's Selection",
       description:
         "Stacked fluffy hotcakes, fresh honeycomb butter, wild forest berries, organic maple syrup, and whipped ricotta cheese.",
-      image: "https://placehold.co/600x400/png",
+      image:
+        "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&auto=format&fit=crop&q=80",
       tag: "Vegetarian",
       rating: "4.9 (420+)",
     },
@@ -27,7 +28,8 @@ const HomeScreen = () => {
       category: "Chef's Selection",
       description:
         "Creamy Bali avocado, pasture-raised poached eggs, feta crumbs, dukkah spice, and micro herbs on toasted sourdough.",
-      image: "https://placehold.co/600x400/png",
+      image:
+        "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&auto=format&fit=crop&q=80",
       tag: "House Bread",
       rating: "4.8 (310+)",
     },
@@ -69,26 +71,30 @@ const HomeScreen = () => {
 
         {/* 3. Hero Card */}
         <View style={styles.heroCard}>
-          <View style={styles.heroImage}>
+          <View style={styles.heroImageContainer}>
             <Image
               source={{
-                uri: "https://placehold.co/600x400/png",
+                uri: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1000&auto=format&fit=crop&q=80",
               }}
-              style={[StyleSheet.absoluteFillObject, { borderRadius: 24 }]}
+              style={styles.heroImage}
               resizeMode="cover"
             />
-            {/* Tombol Favorit */}
-            <Pressable style={styles.favoriteButton}>
-              <Lucide name="heart" size={18} color="#0f0f0f" />
-            </Pressable>
 
-            {/* Overlay Konten Hero */}
-            <View style={styles.heroOverlay}>
-              <Text style={styles.heroBadge}>AUTHENTIC ISLAND VIBES</Text>
-              <Text style={styles.heroTitle}>Home of Bali's Best Brunch</Text>
-              <Text style={styles.heroSubtitle}>
-                Where strangers become regulars since 2014
-              </Text>
+            {/* Content Overlay di atas Gambar */}
+            <View style={styles.heroContentOverlay}>
+              {/* Tombol Favorit */}
+              <Pressable style={styles.favoriteButton}>
+                <Lucide name="heart" size={18} color="#0f0f0f" />
+              </Pressable>
+
+              {/* Overlay Konten Hero */}
+              <View style={styles.heroOverlay}>
+                <Text style={styles.heroBadge}>AUTHENTIC ISLAND VIBES</Text>
+                <Text style={styles.heroTitle}>Home of Bali's Best Brunch</Text>
+                <Text style={styles.heroSubtitle}>
+                  Where strangers become regulars since 2014
+                </Text>
+              </View>
             </View>
           </View>
 
@@ -350,7 +356,7 @@ const styles = StyleSheet.create({
   // 3. Hero Card
   heroCard: {
     borderRadius: 24,
-    backgroundColor: "#bd8f10",
+    backgroundColor: "#292524",
     overflow: "hidden",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
@@ -358,14 +364,28 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 3,
   },
-  heroImage: {
+  heroImageContainer: {
     height: 250,
+    width: "100%",
+    position: "relative",
+    overflow: "hidden",
+  },
+  heroImage: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: "100%",
+    height: "100%",
+  },
+  heroContentOverlay: {
+    flex: 1,
     justifyContent: "space-between",
     padding: 16,
   },
   favoriteButton: {
     width: 36,
-    marginBottom: 95,
     height: 36,
     borderRadius: 18,
     backgroundColor: "rgba(255, 255, 255, 0.9)",
