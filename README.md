@@ -114,10 +114,8 @@ npm run web       # expo start --web
 - Ikon: [Lucide](https://lucide.dev), lewat `@react-native-vector-icons/lucide`.
 - Gambar: [Unsplash](https://unsplash.com) dan gambar placeholder dari [placehold.co](https://placehold.co).
 - Font: tidak ada font tambahan, aplikasi memakai font bawaan sistem perangkat.
-## Tangkapan Layar
- 
-> Tambahkan screenshot tiap screen di sini, misalnya di folder `docs/screenshots/`.
- 
+
+
 ## Pengembang
  
 - I Made Bintang Kartika Yasa (NIM 240040054), Institut Teknologi dan Bisnis STIKOM Bali
