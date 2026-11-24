@@ -86,20 +86,22 @@ const WhatsOnScreen = () => {
               style={styles.eventImage}
               resizeMode="cover"
             />
-            {/* Badges di atas gambar */}
-            <View style={styles.imageOverlayTop}>
-              <View style={styles.badgeGold}>
-                <Text style={styles.badgeGoldText}>TUESDAYS & SUNDAYS</Text>
+            <View style={styles.imageInnerOverlay}>
+              {/* Badges di atas gambar */}
+              <View style={styles.imageOverlayTop}>
+                <View style={styles.badgeGold}>
+                  <Text style={styles.badgeGoldText}>TUESDAYS & SUNDAYS</Text>
+                </View>
+                <View style={styles.badgeWhite}>
+                  <Text style={styles.badgeWhiteText}>FROM 4:00 PM</Text>
+                </View>
               </View>
-              <View style={styles.badgeWhite}>
-                <Text style={styles.badgeWhiteText}>FROM 4:00 PM</Text>
-              </View>
-            </View>
 
-            {/* Title Overlay di bawah gambar */}
-            <View style={styles.imageOverlayBottom}>
-              <Text style={styles.imageDealBadge}>ISLAND FAMOUS DEAL</Text>
-              <Text style={styles.imageEventTitle}>2-for-1 Pizza Nights</Text>
+              {/* Title Overlay di bawah gambar */}
+              <View style={styles.imageOverlayBottom}>
+                <Text style={styles.imageDealBadge}>ISLAND FAMOUS DEAL</Text>
+                <Text style={styles.imageEventTitle}>2-for-1 Pizza Nights</Text>
+              </View>
             </View>
           </View>
 
@@ -161,18 +163,20 @@ const WhatsOnScreen = () => {
               style={styles.eventImage}
               resizeMode="cover"
             />
-            <View style={styles.imageOverlayTop}>
-              <View style={styles.badgeBrown}>
-                <Text style={styles.badgeBrownText}>DAILY FROM 5:00 PM</Text>
+            <View style={styles.imageInnerOverlay}>
+              <View style={styles.imageOverlayTop}>
+                <View style={styles.badgeBrown}>
+                  <Text style={styles.badgeBrownText}>DAILY FROM 5:00 PM</Text>
+                </View>
+                <View style={styles.badgeWhite}>
+                  <Text style={styles.badgeWhiteText}>SUNSET GOLDEN HOUR</Text>
+                </View>
               </View>
-              <View style={styles.badgeWhite}>
-                <Text style={styles.badgeWhiteText}>SUNSET GOLDEN HOUR</Text>
-              </View>
-            </View>
 
-            <View style={styles.imageOverlayBottom}>
-              <Text style={styles.imageDealBadge}>SURF CLUB VIBE</Text>
-              <Text style={styles.imageEventTitle}>241 Sunset Sessions</Text>
+              <View style={styles.imageOverlayBottom}>
+                <Text style={styles.imageDealBadge}>SURF CLUB VIBE</Text>
+                <Text style={styles.imageEventTitle}>241 Sunset Sessions</Text>
+              </View>
             </View>
           </View>
 
@@ -304,17 +308,19 @@ const WhatsOnScreen = () => {
               style={styles.eventImage}
               resizeMode="cover"
             />
-            <View style={styles.imageOverlayTop}>
-              <View style={styles.badgeWhite}>
-                <Text style={styles.badgeWhiteText}>FAMILY & KIDS CLUB</Text>
+            <View style={styles.imageInnerOverlay}>
+              <View style={styles.imageOverlayTop}>
+                <View style={styles.badgeWhite}>
+                  <Text style={styles.badgeWhiteText}>FAMILY & KIDS CLUB</Text>
+                </View>
               </View>
-            </View>
 
-            <View style={styles.imageOverlayBottom}>
-              <Text style={styles.imageDealBadge}>PLAYGROUND & CRAFTS</Text>
-              <Text style={styles.imageEventTitle}>
-                Kids Parties & Pizza Workshops
-              </Text>
+              <View style={styles.imageOverlayBottom}>
+                <Text style={styles.imageDealBadge}>PLAYGROUND & CRAFTS</Text>
+                <Text style={styles.imageEventTitle}>
+                  Kids Parties & Pizza Workshops
+                </Text>
+              </View>
             </View>
           </View>
 
@@ -430,14 +436,23 @@ const styles = StyleSheet.create({
     borderColor: "#EAE5DC",
   },
   imageContainer: {
-    height: 180,
+    height: 190,
+    width: "100%",
     position: "relative",
-    justifyContent: "space-between",
-    padding: 12,
+    overflow: "hidden",
+    backgroundColor: "#292524",
   },
   eventImage: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: "#E7E5E4",
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
+  },
+  imageInnerOverlay: {
+    flex: 1,
+    justifyContent: "space-between",
+    padding: 12,
   },
   imageOverlayTop: {
     flexDirection: "row",
