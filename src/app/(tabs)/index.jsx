@@ -49,9 +49,7 @@ const HomeScreen = () => {
               <Lucide name="bell" size={20} color="#292524" />
             </Pressable>
             <Image
-              source={{
-                uri: "https://placehold.co/600x400/png",
-              }}
+              source={require("../../../assets/IMG_4326.jpg")}
               style={styles.avatar}
             />
           </View>
