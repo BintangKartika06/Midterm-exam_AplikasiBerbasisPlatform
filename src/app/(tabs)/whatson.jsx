@@ -14,16 +14,6 @@ import Lucide from "@react-native-vector-icons/lucide";
 const WhatsOnScreen = () => {
   const router = useRouter();
 
-  // Hari-hari dalam seminggu
-  const weekDays = [
-    { day: "TUE", date: "14", active: false },
-    { day: "WED", date: "15", active: true },
-    { day: "THU", date: "16", active: false },
-    { day: "FRI", date: "17", active: false },
-    { day: "SAT", date: "18", active: false },
-    { day: "SUN", date: "19", active: false },
-  ];
-
   // Helper untuk membuka halaman Details
   const openEventDetails = (event) => {
     router.push({
@@ -71,50 +61,7 @@ const WhatsOnScreen = () => {
           </Text>
         </View>
 
-        {/* 3. Date Selector Bar */}
-        <View style={styles.dateSelectorRow}>
-          {weekDays.map((item, idx) => (
-            <View
-              key={idx}
-              style={[
-                styles.dateCard,
-                item.active && styles.dateCardActive,
-              ]}
-            >
-              <Text
-                style={[
-                  styles.dateDayText,
-                  item.active && styles.dateDayTextActive,
-                ]}
-              >
-                {item.day}
-              </Text>
-              <Text
-                style={[
-                  styles.dateNumberText,
-                  item.active && styles.dateNumberTextActive,
-                ]}
-              >
-                {item.date}
-              </Text>
-              <View
-                style={[
-                  styles.dateDot,
-                  item.active && styles.dateDotActive,
-                ]}
-              />
-            </View>
-          ))}
-        </View>
-
-        {/* Chip Filter Sederhana */}
-        <View style={styles.chipRow}>
-          <View style={styles.allHappeningsChip}>
-            <Text style={styles.allHappeningsText}>All Happenings</Text>
-          </View>
-        </View>
-
-        {/* 4. Event Card 1: 2-for-1 Pizza Nights */}
+        {/* 3. Event Card 1: 2-for-1 Pizza Nights */}
         <Pressable
           style={styles.eventCard}
           onPress={() =>
@@ -186,7 +133,7 @@ const WhatsOnScreen = () => {
           </View>
         </Pressable>
 
-        {/* 5. Event Card 2: 241 Sunset Sessions */}
+        {/* 4. Event Card 2: 241 Sunset Sessions */}
         <Pressable
           style={styles.eventCard}
           onPress={() =>
@@ -257,7 +204,7 @@ const WhatsOnScreen = () => {
           </View>
         </Pressable>
 
-        {/* 6. Event Card 3: Live & Local Music Night */}
+        {/* 5. Event Card 3: Live & Local Music Night */}
         <View style={styles.musicCard}>
           <View style={styles.musicHeader}>
             <View style={styles.musicTitleRow}>
@@ -325,7 +272,7 @@ const WhatsOnScreen = () => {
           </View>
         </View>
 
-        {/* 7. Event Card 4: Kids Parties & Pizza Workshops */}
+        {/* 6. Event Card 4: Kids Parties & Pizza Workshops */}
         <Pressable
           style={styles.eventCard}
           onPress={() =>
@@ -462,70 +409,7 @@ const styles = StyleSheet.create({
     color: "#78716C",
   },
 
-  // 3. Date Selector
-  dateSelectorRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    gap: 6,
-  },
-  dateCard: {
-    flex: 1,
-    alignItems: "center",
-    backgroundColor: "#FFFFFF",
-    borderRadius: 16,
-    paddingVertical: 10,
-    borderWidth: 1,
-    borderColor: "#EAE5DC",
-    gap: 2,
-  },
-  dateCardActive: {
-    backgroundColor: "#E8A229",
-    borderColor: "#E8A229",
-  },
-  dateDayText: {
-    fontSize: 10,
-    fontWeight: "700",
-    color: "#78716C",
-  },
-  dateDayTextActive: {
-    color: "#292524",
-  },
-  dateNumberText: {
-    fontSize: 15,
-    fontWeight: "800",
-    color: "#292524",
-  },
-  dateNumberTextActive: {
-    color: "#292524",
-  },
-  dateDot: {
-    width: 4,
-    height: 4,
-    borderRadius: 2,
-    backgroundColor: "#A8A29E",
-    marginTop: 2,
-  },
-  dateDotActive: {
-    backgroundColor: "#292524",
-  },
-
-  // Chip Filter
-  chipRow: {
-    flexDirection: "row",
-  },
-  allHappeningsChip: {
-    backgroundColor: "#E8A229",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-  },
-  allHappeningsText: {
-    fontSize: 12,
-    fontWeight: "800",
-    color: "#292524",
-  },
-
-  // 4 & 5. Event Cards
+  // 3 & 4. Event Cards
   eventCard: {
     backgroundColor: "#FFFFFF",
     borderRadius: 20,
@@ -690,7 +574,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
 
-  // 6. Music Card
+  // 5. Music Card
   musicCard: {
     backgroundColor: "#EEF3ED",
     borderRadius: 20,
